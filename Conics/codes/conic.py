@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from numpy import linalg as LA
 import sympy as sym
 import sys                                          
-sys.path.insert(0,'/sdcad/sai1729/trunk/conic/CoordGeo')   
+sys.path.insert(0,'/sdcad/hussain/trunk/conic/CoordGeo')   
 
 #from line.funcs import *
 #from triangle.funcs import *
@@ -87,8 +87,6 @@ plt.ylabel('$y$')
 plt.legend(loc='best')
 plt.grid()
 plt.axis('equal')
-
-
-#plt.savefig('/sdcard/sai1729/trunk/conic/conic1.pdf')
-#subprocess.run(shlex.split("termux-open /sdcard/sai1729/trunk/conic/conic1.pdf"))
+#plt.savefig('/sdcard/hussain/trunk/conic/conic1.pdf')
+#subprocess.run(shlex.split("termux-open /sdcard/hussain/trunk/conic/conic1.pdf"))
 plt.show()
