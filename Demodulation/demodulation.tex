@@ -1,0 +1,592 @@
+%\documentclass[border=10pt, onecolumn]{standalone}
+%\documentclass[convert]{standalone}
+\documentclass[onecolumn]{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning,shapes.geometric}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\lstset{
+    frame=single,
+    breaklines=true
+}
+\usepackage{hyperref}
+%\usepackage{atbegshi}
+%\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+%\newcommand{\solution}{\noindent \textbf{Solution:}}
+%\documentclass[twoside]{article}
+\usepackage[a2paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\def\mytitle{\textbf{DEMODULATION TECHNIQUES}}
+\def\myauthor{DUDEKULA USENI}
+\def\contact{r171099@rguktrkv.ac.in}
+%\def\myauthor{}
+\def\contact{r171099@rguktrkv.ac.in }
+\def\mymodule{Future Wireless Communication (FWC)}
+
+%\thiswatermark{\centering \put(-15,-100.0){\includegraphics[scale=0.4]{iith.png}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\FWC22098 -\hspace{0.5em}IITH\hspace{0.5em}\mymodule\hspace{6em}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\section{what is Demodulation}
+\item[\textbf{}] 
+Demodulation is the process of extracting the original information or baseband signal from a modulated carrier signal.The purpose of demodulation is to retrieve the modulating signal, which could be analog or digital data, audio, video, or other forms of information. Demodulation is essential in various communication systems such as radio, television, cellular networks, and wireless data transmission
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,246); %set diagram left start at 0, and has height of 246
+
+%Straight Lines [id:da5987501857962895] 
+%\draw    (183,1177.5) -- (184,1206.5) ;
+%Shape: Rectangle [id:dp16489291713195586] 
+\draw   (-626,-78.5) -- (-556,-78.5) -- (-556,-26) -- (-626,-26) -- cycle ;
+%Shape: Rectangle [id:dp3578862544269322] 
+\draw   (-532,-117.5) -- (-449,-117.5) -- (-449,-73) -- (-532,-73) -- cycle ;
+%Shape: Rectangle [id:dp7616991394969004] 
+\draw   (-532,-29.5) -- (-455,-29.5) -- (-455,14) -- (-532,14) -- cycle ;
+%Shape: Rectangle [id:dp32180147390036895] 
+\draw   (-310,-127.5) -- (-232,-127.5) -- (-232,26.5) -- (-310,26.5) -- cycle ;
+%Shape: Rectangle [id:dp40264322660293206] 
+\draw   (-432,-127.5) -- (-352,-127.5) -- (-352,23.5) -- (-432,23.5) -- cycle ;
+%Shape: Rectangle [id:dp9488837668459715] 
+\draw   (-194,-127.5) -- (-91,-127.5) -- (-91,24.5) -- (-194,24.5) -- cycle ;
+%Shape: Rectangle [id:dp39007378771853185] 
+\draw   (-46,-126.5) -- (45,-126.5) -- (45,23.5) -- (-46,23.5) -- cycle ;
+%Straight Lines [id:da38435593102751] 
+\draw    (-665,-150) -- (-663,-46.5) ;
+%Straight Lines [id:da98175374275946] 
+\draw    (-663,-46.5) -- (-627,-45.5) ;
+%Straight Lines [id:da060504334281789696] 
+\draw    (-683,-195) -- (-665,-150) ;
+%Straight Lines [id:da22641981349277662] 
+\draw    (-659,-195) -- (-665,-150) ;
+%Straight Lines [id:da19819954875482748] 
+\draw    (-637,-193.5) -- (-665,-150) ;
+%Shape: Rectangle [id:dp6596239266970375] 
+\draw   (76,-82.5) -- (180,-82.5) -- (180,-33) -- (76,-33) -- cycle ;
+%Straight Lines [id:da2169517955853133] 
+\draw    (-448,-93) -- (-430,-93.45) ;
+\draw [shift={(-428,-93.5)}, rotate = 178.57] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da18599430528726613] 
+\draw    (-454,-3.5) -- (-432,-3.5) ;
+\draw [shift={(-430,-3.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da02284548096631811] 
+\draw    (-352,-91) -- (-311,-89.57) ;
+\draw [shift={(-309,-89.5)}, rotate = 182] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da1765022352254476] 
+\draw    (-353,-5) -- (-312,-3.57) ;
+\draw [shift={(-310,-3.5)}, rotate = 182] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da45743139767832575] 
+\draw    (-233,-86.5) -- (-197,-84.61) ;
+\draw [shift={(-195,-84.5)}, rotate = 183.01] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da10064507932488942] 
+\draw    (-231,-2) -- (-196,-0.58) ;
+\draw [shift={(-194,-0.5)}, rotate = 182.32] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8797328596747832] 
+\draw    (-91,-79) -- (-47,-79.48) ;
+\draw [shift={(-45,-79.5)}, rotate = 179.38] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8262143005989668] 
+\draw    (45,-57) -- (74,-55.6) ;
+\draw [shift={(76,-55.5)}, rotate = 182.77] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da007997346079444578] 
+\draw    (-589,-4.5) -- (-533,-4.5) ;
+%Straight Lines [id:da4047626295104372] 
+\draw    (-590,-105.5) -- (-591,-80.5) ;
+%Straight Lines [id:da918216035225667] 
+\draw    (-589,-24.5) -- (-589,-4.5) ;
+%Straight Lines [id:da10237242971936467] 
+\draw    (-590,-105.5) -- (-532,-103.5) ;
+%Shape: Rectangle [id:dp31489680705217615] 
+\draw   (-292,48.5) -- (-205,48.5) -- (-205,112.5) -- (-292,112.5) -- cycle ;
+%Bend Up Arrow [id:dp8471462270497175] 
+\draw   (-204,70) -- (-176.5,70) -- (-176.5,45) -- (-184,45) -- (-169,25) -- (-154,45) -- (-161.5,45) -- (-161.5,85) -- (-204,85) -- cycle ;
+%Straight Lines [id:da1097453888429728] 
+\draw    (-46,3.5) -- (-77.88,4.18) -- (-89,3.6) ;
+\draw [shift={(-91,3.5)}, rotate = 2.98] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+% Text Node
+\draw (-618,-71) node [anchor=north west][inner sep=0.75pt]   [align=left] { \ \ 1:2\\splitter };
+% Text Node
+\draw (-525,-113) node [anchor=north west][inner sep=0.75pt]   [align=left] { \ \ LNA\\L5-BAND};
+% Text Node
+\draw (-523,-26) node [anchor=north west][inner sep=0.75pt]   [align=left] { \ \ LNA\\S-BAND};
+% Text Node
+\draw (-423,-76) node [anchor=north west][inner sep=0.75pt]   [align=left] { \ RF\\FRONT\\ \ END};
+% Text Node
+\draw (-303,-84) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize] [align=left] { \ Digital \\ \ \ Down \\converter};
+% Text Node
+\draw (-346,-58) node [anchor=north west][inner sep=0.75pt]  [font=\tiny] [align=left] { \ ADC\\samples};
+% Text Node
+\draw (-189,-83) node [anchor=north west][inner sep=0.75pt]  [font=\normalsize] [align=left] {{\scriptsize CORRELATORS \ \ \ \ \ }\\{\scriptsize  \ \ \ \ \ \ \ \ \ AND}\\{\scriptsize DEMODULATOR}};
+% Text Node
+\draw (-36,-74) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize NAVIAGTION }\\{\scriptsize PROCESSOR}};
+% Text Node
+\draw (-80,-122) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\tiny DATA}\\{\tiny CLOCK}};
+% Text Node
+\draw (-88,-18) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\tiny CONTROL}};
+% Text Node
+\draw (87,-76) node [anchor=north west][inner sep=0.75pt]   [align=left] { \ \ \ USER\\INTERFACE};
+% Text Node
+\draw (-276,50) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\footnotesize SPN PRN}\\{\footnotesize Code }\\{\footnotesize generator}};
+\end{tikzpicture}\\
+\begin{center}
+Figure1 : The Block Level Architecture
+\end{center}
+
+The demodulation code used in NavIC may vary depending on the specific implementation and receiver hardware. However, I can provide you with a general outline of the demodulation process for NavIC signals.
+
+NavIC signals are transmitted in the L5 frequency band (1176.45 MHz) using BPSK modulation for the navigation message and various modulation schemes (such as BOC and MBOC) for the ranging signal. The demodulation process typically involves the following steps:
+
+\textbf{Signal Acquisition:} The receiver searches for and acquires the NavIC signal by correlating the received signal with a locally generated replica of the spreading code used by the satellites. This process helps in identifying the presence of the NavIC signal and estimating the initial timing offset.
+
+\textbf{Carrier Tracking:} Once the signal is acquired, the receiver performs carrier tracking to estimate and track the carrier frequency and phase of the received signal. This is crucial for demodulation as it ensures accurate demodulation of the navigation message and ranging signal.
+
+\textbf{Code Tracking:} The receiver performs code tracking to estimate and track the spreading code used by the satellites. This helps in maintaining synchronization with the transmitted signal and extracting the navigation data and ranging information.
+
+\textbf{Demodulation:} After carrier and code tracking, the receiver applies the appropriate demodulation technique based on the modulation scheme used for the ranging signal (e.g., BOC, MBOC). This involves extracting the navigation data and ranging information by demodulating the received signal using the corresponding demodulation algorithm.
+
+\textbf{Data Extraction:} Once the demodulation is performed, the receiver extracts the navigation data from the demodulated signal. The navigation data includes information such as satellite ephemeris, clock correction, and other parameters necessary for calculating the receiver's position, velocity, and timing.
+
+
+
+
+\section{Types of Demodulation techniques}
+NavIC (Navigation with Indian Constellation), also known as the Indian Regional Navigation Satellite System (IRNSS), is the navigation satellite system developed by the Indian Space Research Organization (ISRO). It uses a variety of demodulation techniques to extract navigation data from the received signals. 
+Here are some of the demodulation techniques used in NavIC
+\subsection{Binary Phase Shift Keying (BPSK)}
+BPSK is a digital modulation scheme that uses two phases, 0 and 180 degrees, to represent binary data. In NavIC, BPSK is used for transmitting the navigation message.
+Navigation information constituting Ephemeris and Almanac
+data that describes orbital motion and position of satellites in
+orbits is a 50 Hz navigation data, encrypted by CA (Course
+acquisition) code which has chipping rate of 1.023MHz.
+Further it is BPSK modulated by L5 carrier signal. The
+transmitted L5 signal is given by 
+\begin{align}
+X_i(t)= A[ CA_i(t) + D_i(t)]Sin( W_{L5} t )
+\end{align}
+where \\
+$CA_i$   = course acquisition code of $i^{th}$ satellite\\
+D        = navigation data of $i^{th}$satellite\\
+$W_{L5}$ = L5 radian frequency (2 *pi*f L5 )\\
+A        = signal amplitude\\
+
+Each NavIC satellite has unique identification number [1] referred to as CA (course acquisition) code also called as pseudo random code (PRN) code, facilitates multiple access of satellite signals through code division multipleaccess(CDMA).\\
+
+\subsubsection{Signal Acquisition}
+
+Signal acquisition is a 3D process of detecting satellite signal and its corresponding carrier frequency and code phase of the PRN code from the received signal. The navigation signal transmitted from satellite is recorded from the receiver antenna. The signal is down converted into Intermediate frequency (IF) in the front end of the receiver [5]. IF data consists of navigation signals from all NavIC satellites.
+Further IF data is processed in the receiver to identify the visible satellites. This is accomplished in sequence within a loop by first wiping off the carrier by demodulating with replicated carrier signal and subsequently wiping off PRN code by correlating the received PRN/CA code with replicated PRN (CA) codes of all satellites [7] resulting in In phase(I) and quadrature phase correlator (Q) components
+The correlation power (I 2 + Q 2 ) is measured for more than 1 code period (N) is squared and accumulated. M such correlation are averaged and compared against threshold. If resultant correlation magnitude is greater than threshold, satellite signal is detected; the carrier frequency values and
+code phase are extracted for the detected satellite. The correlation power [4] is given by
+\begin{align}
+R^2(m)=\quad\sum_{k=1}^M([\sum_{N=1}^M x(n).CA[n].cos(wn))]^2 + [\sum_{N=1}^M x(n).CA[n].sin(wn)]^2
+\end{align}
+
+Signal acquisition is coded as search algorithm for carrier frequency and code phase at the point of synchronization between the received signal and replicated signal. For a sampling rate of 56MHz, one CA code period has 56000 samples, the replicated carrier frequency at IF frequency is
+shifted in increments of 125Hz over Doppler frequency range of ±10KHz to have 81 frequency search bins and multiplied with received carrier signal. Subsequently, received CA code samples of 1ms (i.e., 56000 samples) is correlated with replicated CA code by circularly shifting which is equivalent to circular convolution. 
+DFT/FFT tool is used to effectively implement the circular convolution, as circular convolution is equivalent to multiplication in frequency domain. It is mathematically expressed as\\
+\begin{align}
+R[m]=x[n]*CA[n]=F^{-1}(F(x[n]).F(CA[n]))
+\end{align}
+
+Once satellite signals are detected in signal acquisition stage, continuous tracking of the satellite signal is equally significant for further decoding and extraction of navigation data and is referred to as signal tracking. The need for signal tracking arises from the fact the carrier signal experiences frequency deviation due to Doppler shift. Relative motion between satellite and receiver induces Doppler frequency offset in the carrier frequency and for stationary receiver it is assumed to be ±10KHz. Similarly CA code phase samples also undergo shift Signal tracking is about detecting frequency and code shift of the detected satellite signal and synchronize with the replicated signals with the aim of retrieving navigation data.
+
+ \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,235); %set diagram left start at 0, and has height of 235
+
+%Shape: Rectangle [id:dp2372607424781431] 
+\draw   (-111,145.5) -- (8,145.5) -- (8,215) -- (-111,215) -- cycle ;
+%Straight Lines [id:da5855037135930273] 
+\draw    (-39,106) -- (-39,125.5) -- (-39,142.5) ;
+\draw [shift={(-39,144.5)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp6729095047486635] 
+\draw   (41,159.5) -- (145,159.5) -- (145,199) -- (41,199) -- cycle ;
+%Straight Lines [id:da6994653512088029] 
+\draw    (10,177.5) -- (37,178.43) ;
+\draw [shift={(39,178.5)}, rotate = 181.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da39635849816286794] 
+\draw    (146,177.5) -- (175,177.5) ;
+%Straight Lines [id:da9948598222032776] 
+\draw    (175,177.5) -- (175,216.5) ;
+%Straight Lines [id:da5987501857962895] 
+%\draw    (183,1177.5) -- (184,1206.5) ;
+%Straight Lines [id:da9953784232425601] 
+\draw    (174,138.5) -- (174.67,164.46) -- (175,177.5) ;
+%Straight Lines [id:da5147377595135718] 
+\draw    (174,138.5) -- (196.14,139.55) -- (209.01,138.64) ;
+\draw [shift={(211,138.5)}, rotate = 175.94] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7832317441792079] 
+\draw    (175,216.5) -- (207,216.5) ;
+\draw [shift={(209,216.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp14601344736481758] 
+\draw   (212,122.5) -- (317,122.5) -- (317,158) -- (212,158) -- cycle ;
+%Shape: Rectangle [id:dp5571368069890448] 
+\draw   (210,197.5) -- (318,197.5) -- (318,238) -- (210,238) -- cycle ;
+%Straight Lines [id:da49260464792305036] 
+\draw    (233,159.5) -- (233.95,196.5) ;
+\draw [shift={(234,198.5)}, rotate = 268.53] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5514370655628017] 
+\draw    (293,196.5) -- (293,160.5) ;
+\draw [shift={(293,158.5)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8037764541108328] 
+\draw    (319,215.5) -- (349,215.5) -- (353,211.5) ;
+%Straight Lines [id:da19250521809466348] 
+\draw    (352,141.5) -- (353,211.5) ;
+%Straight Lines [id:da726145046542955] 
+\draw    (352.5,176.5) -- (371,176.5) -- (391,176.5) ;
+\draw [shift={(393,176.5)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp8428264104857349] 
+\draw   (392,147.5) -- (510,147.5) -- (510,200) -- (392,200) -- cycle ;
+%Straight Lines [id:da18378416335023884] 
+\draw    (512,173) -- (541,173.47) ;
+\draw [shift={(543,173.5)}, rotate = 180.92] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp5892564933882121] 
+\draw   (543,147.5) -- (653,147.5) -- (653,200) -- (543,200) -- cycle ;
+%Straight Lines [id:da8820351014084451] 
+\draw    (318,140) -- (352,141.5) ;
+
+% Text Node
+\draw (-85,150) node [anchor=north west][inner sep=0.75pt]   [align=left] {RF Front\\End\\RTL-SDR };
+% Text Node
+\draw (56,168) node [anchor=north west][inner sep=0.75pt]   [align=left] {Acquisition};
+% Text Node
+\draw (218,130) node [anchor=north west][inner sep=0.75pt]   [align=left] {Code tracking};
+% Text Node
+\draw (238,196.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {Carrier \\tracking};
+% Text Node
+\draw (402,154) node [anchor=north west][inner sep=0.75pt]   [align=left] {Navigation\\data extraction};
+% Text Node
+\draw (558,153) node [anchor=north west][inner sep=0.75pt]   [align=left] {Obtaining\\Epherimes};
+% Text Node
+\draw (-64,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {Incoming \\signal};
+
+
+\end{tikzpicture}\\
+\begin{center}
+Figure2 : The Block Level Architecture in Demodulation
+\end{center}
+
+
+\subsubsection{Carrier tracking loop:}Carrier tracking loop tracks the frequency and phase of the
+received signal by detecting the phase error between replicated signal and incoming signal and accordingly replicated signal produced by numerically controlled oscillator (NCO) is adjusted to synchronize with incoming signal in both frequency and phase. For zero phase error detected, navigation data is accurately extracted. Arctangent discriminator given by atan(Q/I) is used as phase
+discriminator (PD) to detect phase error angle between I and Q component. Though several phase discriminators [2] are available, Atan PD has linear output over half of the input
+error range (±90 0 ) and hence preferable over other types. The PD output is filtered for noise by loop filter and drives the NCO signal frequency towards the incoming carrier signal frequency.The loop filter parameters [2]: filter order, damping ratio and band width determine PLL’s ability to filter out the noise and track high signal dynamics
+
+\subsubsection{Code tracking loop:}Post the carrier signal synchronization, received CA code samples is synchronized by aligning with replicated CA code samples by shifting right or left. To determine the direction of shift, the I and Q outputs are multiplied with prompt code (PRN code which is phase aligned), early code (prompt PRN code shifted by some samples to the right) and late code (prompt PRN code shifted by some samples to the left) resulting in corresponding to I and Q channel respectively. A code discriminator function is given by equation 4, generates error ( proportional to the code
+phase error between the replica and incoming signal. This error is filtered and applied to code generator and output frequency is increased or decreased and accordingly the prompt code is phase shifted to be phase aligned with received one.
+\begin{align}
+\epsilon=\frac{(I^2_E+Q^2_E)-(I^2_L+Q^2_L)}{(I^2_E+Q^2_E)+(I^2_L+Q^2_L)}
+\end{align}
+
+%\includegraphics[width=\linewidth]{./figures/dm1.png}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.5pt,y=0.5pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,246); %set diagram left start at 0, and has height of 246
+
+%Flowchart: Summing Junction [id:dp043400779895746644] 
+\draw   (-259.33,2.67) .. controls (-259.33,-8.66) and (-250.16,-17.83) .. (-238.83,-17.83) .. controls (-227.51,-17.83) and (-218.33,-8.66) .. (-218.33,2.67) .. controls (-218.33,13.99) and (-227.51,23.17) .. (-238.83,23.17) .. controls (-250.16,23.17) and (-259.33,13.99) .. (-259.33,2.67) -- cycle ; \draw   (-253.33,-11.83) -- (-224.34,17.16) ; \draw   (-224.34,-11.83) -- (-253.33,17.16) ;
+%Flowchart: Summing Junction [id:dp586113002200873] 
+\draw   (-145.33,83.17) .. controls (-145.33,71.84) and (-136.16,62.67) .. (-124.83,62.67) .. controls (-113.51,62.67) and (-104.33,71.84) .. (-104.33,83.17) .. controls (-104.33,94.49) and (-113.51,103.67) .. (-124.83,103.67) .. controls (-136.16,103.67) and (-145.33,94.49) .. (-145.33,83.17) -- cycle ; \draw   (-139.33,68.67) -- (-110.34,97.66) ; \draw   (-110.34,68.67) -- (-139.33,97.66) ;
+%Flowchart: Summing Junction [id:dp4127984141960791] 
+\draw   (376,226.5) .. controls (376,215.18) and (385.18,206) .. (396.5,206) .. controls (407.82,206) and (417,215.18) .. (417,226.5) .. controls (417,237.82) and (407.82,247) .. (396.5,247) .. controls (385.18,247) and (376,237.82) .. (376,226.5) -- cycle ; \draw   (382,212) -- (411,241) ; \draw   (411,212) -- (382,241) ;
+%Flowchart: Summing Junction [id:dp17060464890831695] 
+\draw   (208,-142.17) .. controls (208,-153.49) and (217.18,-162.67) .. (228.5,-162.67) .. controls (239.82,-162.67) and (249,-153.49) .. (249,-142.17) .. controls (249,-130.84) and (239.82,-121.67) .. (228.5,-121.67) .. controls (217.18,-121.67) and (208,-130.84) .. (208,-142.17) -- cycle ; \draw   (214,-156.66) -- (243,-127.67) ; \draw   (243,-156.66) -- (214,-127.67) ;
+%Flowchart: Summing Junction [id:dp864040871369287] 
+\draw   (238,91.67) .. controls (238,80.34) and (247.18,71.17) .. (258.5,71.17) .. controls (269.82,71.17) and (279,80.34) .. (279,91.67) .. controls (279,102.99) and (269.82,112.17) .. (258.5,112.17) .. controls (247.18,112.17) and (238,102.99) .. (238,91.67) -- cycle ; \draw   (244,77.17) -- (273,106.16) ; \draw   (273,77.17) -- (244,106.16) ;
+%Flowchart: Summing Junction [id:dp3213403304307506] 
+\draw   (374.67,11.17) .. controls (374.67,-0.16) and (383.84,-9.33) .. (395.17,-9.33) .. controls (406.49,-9.33) and (415.67,-0.16) .. (415.67,11.17) .. controls (415.67,22.49) and (406.49,31.67) .. (395.17,31.67) .. controls (383.84,31.67) and (374.67,22.49) .. (374.67,11.17) -- cycle ; \draw   (380.67,-3.33) -- (409.66,25.66) ; \draw   (409.66,-3.33) -- (380.67,25.66) ;
+%Flowchart: Summing Junction [id:dp24541538873627566] 
+\draw   (332.67,160) .. controls (332.67,148.68) and (341.84,139.5) .. (353.17,139.5) .. controls (364.49,139.5) and (373.67,148.68) .. (373.67,160) .. controls (373.67,171.32) and (364.49,180.5) .. (353.17,180.5) .. controls (341.84,180.5) and (332.67,171.32) .. (332.67,160) -- cycle ; \draw   (338.67,145.5) -- (367.66,174.5) ; \draw   (367.66,145.5) -- (338.67,174.5) ;
+%Flowchart: Summing Junction [id:dp6615983290112839] 
+\draw   (302.67,-64.17) .. controls (302.67,-75.49) and (311.84,-84.67) .. (323.17,-84.67) .. controls (334.49,-84.67) and (343.67,-75.49) .. (343.67,-64.17) .. controls (343.67,-52.84) and (334.49,-43.67) .. (323.17,-43.67) .. controls (311.84,-43.67) and (302.67,-52.84) .. (302.67,-64.17) -- cycle ; \draw   (308.67,-78.66) -- (337.66,-49.67) ; \draw   (337.66,-78.66) -- (308.67,-49.67) ;
+%Shape: Rectangle [id:dp18047760236711496] 
+\draw   (478,-169) -- (623,-169) -- (623,-105) -- (478,-105) -- cycle ;
+%Shape: Rectangle [id:dp6154925990356583] 
+\draw   (764,-201) -- (963,-201) -- (963,571) -- (764,571) -- cycle ;
+%Shape: Rectangle [id:dp46293265177116927] 
+\draw   (481,-93) -- (625,-93) -- (625,-35) -- (481,-35) -- cycle ;
+%Shape: Rectangle [id:dp06582709318263436] 
+\draw   (485,199) -- (629,199) -- (629,256) -- (485,256) -- cycle ;
+%Shape: Rectangle [id:dp27089389794903496] 
+\draw   (483,52) -- (627,52) -- (627,110) -- (483,110) -- cycle ;
+%Shape: Rectangle [id:dp2723554798340738] 
+\draw   (485,124) -- (629,124) -- (629,182) -- (485,182) -- cycle ;
+%Shape: Rectangle [id:dp655584751784606] 
+\draw   (481,-20) -- (625,-20) -- (625,38) -- (481,38) -- cycle ;
+%Straight Lines [id:da6508277790081325] 
+\draw    (-218.33,2.67) -- (374.67,11.17) ;
+%Straight Lines [id:da1218619749559019] 
+\draw    (415.67,11.17) -- (481,11) ;
+\draw [shift={(483,11)}, rotate = 179.86] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3783233116754007] 
+\draw    (345.17,-59.33) -- (475,-55.07) ;
+\draw [shift={(477,-55)}, rotate = 181.88] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da17939590294804098] 
+\draw    (249,-142.17) -- (469,-139.03) ;
+\draw [shift={(471,-139)}, rotate = 180.82] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4898600311059651] 
+\draw    (279,91.67) -- (479.67,90.68) ;
+\draw [shift={(481.67,90.67)}, rotate = 179.72] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3128257984665459] 
+\draw    (373.67,160) -- (483.67,162.62) ;
+\draw [shift={(485.67,162.67)}, rotate = 181.36] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5376012613951467] 
+\draw    (417,226.5) -- (483.67,225.37) ;
+\draw [shift={(485.67,225.33)}, rotate = 179.03] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da9304595477976156] 
+\draw    (624,-135.67) -- (761,-132.05) ;
+\draw [shift={(763,-132)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da84809009783177] 
+\draw    (625.67,-60.67) -- (762.67,-57.05) ;
+\draw [shift={(764.67,-57)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da35934082920902444] 
+\draw    (627,12.67) -- (764,16.28) ;
+\draw [shift={(766,16.33)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7544092631133213] 
+\draw    (628.33,83.33) -- (765.33,86.95) ;
+\draw [shift={(767.33,87)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da6537525837501645] 
+\draw    (629.67,151.33) -- (766.67,154.95) ;
+\draw [shift={(768.67,155)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da5605636520931635] 
+\draw    (629.67,223.33) -- (766.67,226.95) ;
+\draw [shift={(768.67,227)}, rotate = 181.51] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp29034642561423285] 
+\draw   (277.67,304) -- (468.33,304) -- (468.33,380) -- (277.67,380) -- cycle ;
+%Straight Lines [id:da9596080336274496] 
+\draw    (394.67,305) -- (396.44,249) ;
+\draw [shift={(396.5,247)}, rotate = 91.81] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7320596826886105] 
+\draw    (395.58,286.67) -- (428.33,286.67) -- (432.74,61.7) -- (395,61.33) -- (395.16,33.67) ;
+\draw [shift={(395.17,31.67)}, rotate = 90.32] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Circle [id:dp7731930614988666] 
+\draw   (391.42,286.67) .. controls (391.42,284.37) and (393.28,282.5) .. (395.58,282.5) .. controls (397.88,282.5) and (399.75,284.37) .. (399.75,286.67) .. controls (399.75,288.97) and (397.88,290.83) .. (395.58,290.83) .. controls (393.28,290.83) and (391.42,288.97) .. (391.42,286.67) -- cycle ;
+%Straight Lines [id:da6022748384500552] 
+\draw    (349.67,305.33) -- (353.11,182.5) ;
+\draw [shift={(353.17,180.5)}, rotate = 91.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da10369914764652899] 
+\draw    (354.83,260.33) -- (320.5,260.33) -- (323.15,-41.67) ;
+\draw [shift={(323.17,-43.67)}, rotate = 90.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Flowchart: Connector [id:dp029430308622027446] 
+\draw   (354.83,260.33) .. controls (354.83,262.17) and (353.34,263.67) .. (351.5,263.67) .. controls (349.66,263.67) and (348.17,262.17) .. (348.17,260.33) .. controls (348.17,258.49) and (349.66,257) .. (351.5,257) .. controls (353.34,257) and (354.83,258.49) .. (354.83,260.33) -- cycle ;
+%Shape: Rectangle [id:dp7615882305433077] 
+\draw   (88.33,292.67) -- (204.33,292.67) -- (204.33,350.67) -- (88.33,350.67) -- cycle ;
+%Shape: Rectangle [id:dp5892216550461932] 
+\draw   (90.67,394.67) -- (208.33,394.67) -- (208.33,445.33) -- (90.67,445.33) -- cycle ;
+%Straight Lines [id:da8403469638667279] 
+\draw    (204.33,320) -- (273,322.59) ;
+\draw [shift={(275,322.67)}, rotate = 182.16] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da16854735773785134] 
+\draw    (189.67,394.67) -- (189.67,365.33) -- (276.67,365.99) ;
+\draw [shift={(278.67,366)}, rotate = 180.43] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da7670943709272224] 
+\draw    (124.33,392) -- (124.33,352.67) ;
+\draw [shift={(124.33,350.67)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8613804472335784] 
+\draw    (256.5,321.5) -- (256.19,264.16) -- (258.47,114.17) ;
+\draw [shift={(258.5,112.17)}, rotate = 90.87] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da808545477876288] 
+\draw    (227,263) -- (228.5,113.33) -- (228.5,-19) -- (228.5,-119.67) ;
+\draw [shift={(228.5,-121.67)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4684463000680654] 
+\draw    (-104.33,83.17) -- (236,91.62) ;
+\draw [shift={(238,91.67)}, rotate = 181.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Shape: Rectangle [id:dp35806277514436036] 
+\draw   (-156,138.67) -- (-86,138.67) -- (-86,202.67) -- (-156,202.67) -- cycle ;
+%Shape: Rectangle [id:dp32987449770683963] 
+\draw   (-274,136) -- (-204,136) -- (-204,203.67) -- (-274,203.67) -- cycle ;
+%Shape: Rectangle [id:dp5854665983593308] 
+\draw   (-232,261.33) -- (-137,261.33) -- (-137,330.67) -- (-232,330.67) -- cycle ;
+%Straight Lines [id:da45031953433247607] 
+\draw    (-245.33,236.67) -- (-185,237.33) -- (-119.67,240) ;
+%Straight Lines [id:da8418979071465292] 
+\draw    (-185,237.33) -- (-185,262.67) ;
+%Straight Lines [id:da31605941728857245] 
+\draw    (-119.67,240) -- (-119.67,203.33) ;
+\draw [shift={(-119.67,201.33)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da1691241063048584] 
+\draw    (-245.33,236.67) -- (-243.76,203.33) ;
+\draw [shift={(-243.67,201.33)}, rotate = 92.7] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4242292122653898] 
+\draw    (-124,138) -- (-124.78,105.67) ;
+\draw [shift={(-124.83,103.67)}, rotate = 88.61] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da13474967869856613] 
+\draw    (-238.67,133.67) -- (-238.83,25.17) ;
+\draw [shift={(-238.83,23.17)}, rotate = 89.91] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da0590013925527636] 
+\draw    (-173.33,361.67) -- (-173.02,332.67) ;
+\draw [shift={(-173,330.67)}, rotate = 90.62] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da3373188109820453] 
+\draw    (103,10.67) -- (101.67,-146.67) -- (206,-142.25) ;
+\draw [shift={(208,-142.17)}, rotate = 182.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da13188163441746492] 
+\draw    (102.33,-68) -- (305.5,-62.88) ;
+\draw [shift={(307.5,-62.83)}, rotate = 181.44] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8679243125610506] 
+\draw    (103,89.33) -- (103,153.33) -- (330.67,159.94) ;
+\draw [shift={(332.67,160)}, rotate = 181.66] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4445980022849677] 
+\draw    (103,153.33) -- (103,222.67) -- (374,226.47) ;
+\draw [shift={(376,226.5)}, rotate = 180.8] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da352653932289003] 
+\draw    (-385.33,-2.67) -- (-261.33,2.58) ;
+\draw [shift={(-259.33,2.67)}, rotate = 182.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da18638311203285696] 
+\draw    (-366.67,-0.67) -- (-367.67,77.33) -- (-147.33,83.11) ;
+\draw [shift={(-145.33,83.17)}, rotate = 181.5] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da4567480184698198] 
+\draw    (763,427) -- (217,419.03) ;
+\draw [shift={(215,419)}, rotate = 0.84] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da017013667910012797] 
+\draw    (762,511) -- (-67,499) -- (-65,315) -- (-133,313.06) ;
+\draw [shift={(-135,313)}, rotate = 1.64] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8816443060941319] 
+\draw    (132,478) -- (132.93,451) ;
+\draw [shift={(133,449)}, rotate = 91.97] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+%Straight Lines [id:da8035207602759945] 
+%\draw    (227,263) -- (256.19,264.16) ;
+
+% Text Node
+\draw (502,-83) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (514,57) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (510,-13) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (510,133) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (510,-155) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (516,207) node [anchor=north west][inner sep=0.75pt]   [align=left] {Integrated\\and \ dump};
+% Text Node
+\draw (308.67,342) node [anchor=north west][inner sep=0.75pt]   [align=left] {2 bit shift register};
+% Text Node
+\draw (283.33,316.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {D};
+% Text Node
+\draw (280.67,356) node [anchor=north west][inner sep=0.75pt]   [align=left] {C};
+% Text Node
+\draw (342,308) node [anchor=north west][inner sep=0.75pt]   [align=left] {P};
+% Text Node
+\draw (386,307.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {L};
+% Text Node
+\draw (-256.67,151.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {SIN\\map};
+% Text Node
+\draw (-139.33,150) node [anchor=north west][inner sep=0.75pt]   [align=left] {COS\\map};
+% Text Node
+\draw (-204.67,278.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {Carrier\\NCO};
+% Text Node
+\draw (114,302.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {Code\\generator};
+% Text Node
+\draw (123.33,401.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {Code\\NCO};
+% Text Node
+\draw (-194,369) node [anchor=north west][inner sep=0.75pt]   [align=left] {Clock fc};
+% Text Node
+\draw (-376.67,-52.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {Digital \\IF};
+% Text Node
+\draw (-171.33,-20) node [anchor=north west][inner sep=0.75pt]   [align=left] {I};
+% Text Node
+\draw (-86,59.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {Q};
+% Text Node
+\draw (408,399) node [anchor=north west][inner sep=0.75pt]   [align=left] {Code -phase increment per clock cycle};
+% Text Node
+\draw (312,477) node [anchor=north west][inner sep=0.75pt]   [align=left] {Carrier-phase increment per clock \ cycle};
+% Text Node
+\draw (122,135) node [anchor=north west][inner sep=0.75pt]   [align=left] {};
+% Text Node
+\draw (806,98) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\LARGE Receiver }\\{\LARGE processor}};
+% Text Node
+\draw (134.5,466.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {clock fc};
+% Text Node
+\draw (691.33,-78.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ip};
+% Text Node
+\draw (692.67,-5.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {IL};
+% Text Node
+\draw (687.33,64) node [anchor=north west][inner sep=0.75pt]   [align=left] {Qe};
+% Text Node
+\draw (687.33,129.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {Qp};
+% Text Node
+\draw (691.33,206.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {QL};
+% Text Node
+\draw (244,-113) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+% Text Node
+\draw (344,-42) node [anchor=north west][inner sep=0.75pt]   [align=left] {p};
+% Text Node
+\draw (418,28) node [anchor=north west][inner sep=0.75pt]   [align=left] {L};
+% Text Node
+\draw (276,121) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+% Text Node
+\draw (370,172) node [anchor=north west][inner sep=0.75pt]   [align=left] {P};
+% Text Node
+\draw (410,250) node [anchor=north west][inner sep=0.75pt]   [align=left] {L};
+% Text Node
+\draw (102,370) node [anchor=north west][inner sep=0.75pt]   [align=left] {fc};
+% Text Node
+\draw (191.67,368.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {2fc};
+% Text Node
+\draw (688,-151) node [anchor=north west][inner sep=0.75pt]   [align=left] {Ie};
+% Text Node
+\draw (122,146) node [anchor=north west][inner sep=0.75pt]   [align=left] {};
+% Text Node
+\draw (122,128) node [anchor=north west][inner sep=0.75pt]   [align=left] {};
+% Text Node
+\draw (-226,25) node [anchor=north west][inner sep=0.75pt]   [align=left] {SIN};
+% Text Node
+\draw (-112,101) node [anchor=north west][inner sep=0.75pt]   [align=left] {COS};
+
+
+\end{tikzpicture}
+\begin{center}
+Figure3 : Generic digital receiver channel
+\end{center}
+With the demodulated navigation data, the subframes can be acquired, then the ephemeris are obtained, and finally the pseudoranges as well.
+
+
+\textbf{Modulation Scheme:} BPSK is a form of phase modulation where the phase of the carrier signal is shifted by 180 degrees to represent binary symbols. In NavIC, the BPSK modulation is used to modulate the navigation message, which contains important information such as satellite ephemeris, clock corrections, health status, and other navigation parameters.
+
+\textbf{Bit Representation:} In BPSK modulation, binary 0 and 1 are represented by phase shifts of 0 degrees and 180 degrees, respectively. The navigation message in NavIC is encoded as a stream of binary bits, and each bit is mapped to a corresponding phase shift.
+
+\textbf{Carrier Frequency:} The BPSK-modulated navigation message in NavIC is transmitted at the L5 frequency band, which is around 1176.45 MHz. This frequency is specifically allocated for satellite navigation systems.
+
+\textbf{Data Rate:} The data rate of the BPSK-modulated navigation message in NavIC is 50 bits per second (bps). This means that the navigation message is transmitted at a rate of 50 binary bits per second.
+
+\textbf{Error Detection and Correction:} To ensure reliable transmission, the BPSK-modulated navigation message in NavIC incorporates error detection and correction techniques. Cyclic Redundancy Check (CRC) codes are added to the navigation message, allowing the receiver to detect and correct any transmission errors.
+
+\textbf{Symbol Synchronization:} The receiver needs to maintain synchronization with the received BPSK signal in terms of symbol timing. Synchronization algorithms are employed to detect the start of each symbol and align the demodulation process accordingly.
+
+\subsection{Quadrature Phase Shift Keying (QPSK)}
+
+QPSK is a digital modulation scheme that uses four different phases to represent data. In NavIC, QPSK is used for transmitting the ranging signal, which is used for determining the distance between the receiver and the satellite.
+\subsection{Binary Offset Carrier (BOC)} 
+BOC is a modulation scheme that combines BPSK and a subcarrier to achieve better spectral efficiency. In NavIC, a variation of BOC known as BOC(2,2) is used for transmitting the ranging signal.
+\subsection{Multiplexed Binary Offset Carrier (MBOC)}
+MBOC is a modification of BOC that provides improved performance in multipath environments. In NavIC, a variation of MBOC known as MBOC(6,1,1/11) is used for transmitting the ranging signal.
+\subsection{Composite Binary Offset Carrier (CBOC)}
+CBOC is another modification of BOC that provides improved performance in multipath environments. In NavIC, a variation of CBOC known as CBOC(10,5) is used for transmitting the ranging signal.
+
+
+
+
+
+%\section{Software}
+% Download the following code
+ %\begin{lstlisting}
+%https://github.com/dudekulauseni123/FWC0982022
+ %\end{lstlisting}
+
+\end{enumerate}
+\end{document}
+%\end{document}
