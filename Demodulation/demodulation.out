@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{what is Demodulation}{}% 1
+\BOOKMARK [1][-]{section.2}{Types of Demodulation techniques}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Binary Phase Shift Keying \(BPSK\)}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Signal Acquisition}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Carrier tracking loop:}{subsection.2.1}% 5
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Code tracking loop:}{subsection.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Quadrature Phase Shift Keying \(QPSK\)}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Binary Offset Carrier \(BOC\)}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Multiplexed Binary Offset Carrier \(MBOC\)}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.5}{Composite Binary Offset Carrier \(CBOC\)}{section.2}% 10
